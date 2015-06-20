@@ -18,6 +18,13 @@ def donuts(count):
     >>> donuts(99)
     'Number of donuts: many'
     """
+    if count >= 10:
+        cnt = 'many'
+    else:
+        cnt = str(count)
+
+    return 'Number of donuts: ' + cnt
+
     raise NotImplementedError
 
 
@@ -37,6 +44,14 @@ def both_ends(s):
     >>> both_ends('xyz')
     'xyyz'
     """
+    length = len(s)
+    if length < 2:
+        returnstr = ''
+    else:
+        returnstr = s[0:2] + s[length-2:length]
+
+    return returnstr
+
     raise NotImplementedError
 
 
@@ -56,6 +71,10 @@ def fix_start(s):
     >>> fix_start('donut')
     'donut'
     """
+    temp = s[1:].replace(s[0], '*')
+
+    return s[0] + temp
+
     raise NotImplementedError
 
 
@@ -74,6 +93,12 @@ def mix_up(a, b):
     >>> mix_up('pezzy', 'firm')
     'fizzy perm'
     """
+
+    mixa = b[0:2] + a[2:]
+    mixb = a[0:2] + b[2:]
+
+    return mixa + ' ' + mixb
+
     raise NotImplementedError
 
 
@@ -91,6 +116,15 @@ def verbing(s):
     >>> verbing('do')
     'do'
     """
+    length = len(s)
+    last3 = s[length-3:length]
+    if len(s) < 3:
+        return s
+    if (last3 == 'ing'):
+        return s + 'ly'
+    else:
+        return s + 'ing'
+
     raise NotImplementedError
 
 
@@ -111,6 +145,17 @@ def not_bad(s):
     >>> not_bad("It's bad yet not")
     "It's bad yet not"
     """
+
+    indxnot = s.rfind('not')
+    indxbad = s.rfind('bad')+3
+
+    if indxbad > indxnot:
+        retstr = s[0:indxnot] + 'good' + s[indxbad:]
+    else:
+        retstr = s
+
+    return retstr
+
     raise NotImplementedError
 
 
@@ -130,4 +175,25 @@ def front_back(a, b):
     >>> front_back('Kitten', 'Donut')
     'KitDontenut'
     """
+
+    lengtha = len(a)
+    lengthb = len(b)
+
+    if lengtha % 2 == 0:
+        ahalf = int(lengtha)/2
+    else:
+        ahalf = int(lengtha)/2 + 1
+
+    if lengthb % 2 == 0:
+        bhalf = lengthb/2
+    else:
+        bhalf = lengthb/2 + 1
+
+    afront = a[0:int(ahalf)]
+    aback = a[int(ahalf):int(lengtha)]
+    bfront = b[0:int(bhalf)]
+    bback = b[int(bhalf):int(lengthb)]
+
+    return afront + bfront + aback + bback
+
     raise NotImplementedError

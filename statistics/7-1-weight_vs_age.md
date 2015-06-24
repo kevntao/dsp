@@ -19,4 +19,3 @@ Spearman's Correlation
 
 My Findings:
 > The scatterplot does not show any significant relationship between the 2 variables as there is no correlation
-
